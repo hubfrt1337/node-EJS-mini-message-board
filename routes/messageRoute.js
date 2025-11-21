@@ -6,7 +6,7 @@ newMessageRoute.get("/", (req, res) => {
 })
 
 newMessageRoute.post("/", (req, res) => {
-    
+    console.log(req.body.author, "pieski");
     res.send("Message received!");
 });
 module.exports = newMessageRoute;
