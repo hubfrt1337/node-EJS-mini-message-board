@@ -1,5 +1,10 @@
 <html>
     <body>
         <h1>Pieski</h1>
+        <% messages.forEach(msg => { %> 
+        <div><%=msg.user%></div>
+        <div><%=msg.text %></div>
+        <div><%=msg.added%></div>
+        </br> <% })%>
     </body>
 </html>
