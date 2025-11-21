@@ -2,7 +2,11 @@ const express = require('express');
 const newMessageRoute = express.Router();
 
 newMessageRoute.get("/", (req, res) => {
-    res.render("index", {message: message})
+    res.render("form")
 })
 
+newMessageRoute.post("/", (req, res) => {
+    
+    res.send("Message received!");
+});
 module.exports = newMessageRoute;
