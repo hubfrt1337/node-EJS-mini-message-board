@@ -3,6 +3,7 @@ const app = express();
 const {indexRoute, } = require('./routes/indexRoute')
 const newMessageRoute = require('./routes/messageRoute')
 
+const PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }));
@@ -13,7 +14,7 @@ app.use('/new', newMessageRoute);
 app.use('/', indexRoute);
 
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
