@@ -1,10 +1,17 @@
 <html>
+    <head>
+        <title><%= title %></title>
+    </head>
     <body>
         <h1>Pieski</h1>
         <% messages.forEach(msg => { %> 
         <div><%=msg.user%></div>
         <div><%=msg.text %></div>
         <div><%=msg.added%></div>
-        </br> <% })%>
+        <button><a href="/new/message/<%=msg.id%>">Msg details</a></button>
+        </br> 
+        <br> <% })%>
+        
+        <a href="/new">Add message</a>
     </body>
 </html>

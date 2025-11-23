@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title><%= title %></title>
+    </head>
+    <body>
+        <h1>Message Details</h1>
+        <% if(message) { %>
+        <div><strong>User:</strong> <%= message.user %></div>
+        <div><strong>Text:</strong> <%= message.text %></div>
+        <div><strong>Added:</strong> <%= message.added %></div>
+        <br>
+        <% } %>
+        <a href="/">Back to messages</a>
+    </body>
+</html>

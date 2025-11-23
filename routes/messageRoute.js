@@ -8,9 +8,13 @@ newMessageRoute.get("/", (req, res) => {
 newMessageRoute.post("/", (req, res) => {
     reqText = req.body.text;
     reqAuthor = req.body.author;
-    messages.push({text: reqText, user: reqAuthor, added: new Date()})
+    messages.push({id: crypto.randomUUID(),text: reqText, user: reqAuthor, added: new Date()})
     res.redirect('/')
 });
 
-
+newMessageRoute.get("/message/:id", (req, res) => {
+    const id = req.params.id;
+    const message = messages.find(msg => msg.id === id)
+    res.render("message", {title: "Message Details", message: message})
+})
 module.exports = newMessageRoute;
