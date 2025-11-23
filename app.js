@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const indexRoute = require('./routes/indexRoute')
+const {indexRoute, } = require('./routes/indexRoute')
 const newMessageRoute = require('./routes/messageRoute')
 
 

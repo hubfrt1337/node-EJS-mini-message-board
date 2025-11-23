@@ -15,13 +15,9 @@ const messages = [
   }
 ];
 
-indexRoute.get("/" , (req, res) => {
-    res.send("Index site")
-})
-indexRoute.get("/:id", (req, res) => {
-    const {id} = req.params;
+
+indexRoute.get("/", (req, res) => {
     res.render("index", {title: "Mini Message Board", messages: messages})
-   // res.send(`Index id is equal to: ${id}`);
 })
 
-module.exports = indexRoute;
+module.exports = {indexRoute, messages};
