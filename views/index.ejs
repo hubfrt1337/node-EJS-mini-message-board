@@ -1,17 +1,37 @@
 <html>
-    <head>
-        <title><%= title %></title>
-    </head>
-    <body>
-        <h1>Pieski</h1>
-        <% messages.forEach(msg => { %> 
-        <div><%=msg.user%></div>
-        <div><%=msg.text %></div>
-        <div><%=msg.added%></div>
-        <button><a href="/new/message/<%=msg.id%>">Msg details</a></button>
-        </br> 
-        <br> <% })%>
-        
-        <a href="/new">Add message</a>
-    </body>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mini Message Board</h1>
+        <% messages.forEach(msg=> { %>
+            <div class="author-text">
+                <div class="author">
+                <%=msg.user%>:
+            </div>
+            <div class="text">
+                <%=msg.text %>
+            </div>
+            </div>
+            
+            <div class="flex-date-btn">
+                <div class="date">
+                    <%=msg.added.toLocaleString()%>
+                </div>
+                <button class="btn-details"><a href="/new/message/<%=msg.id%>">Msg details</a></button>
+            </div>
+            </br>
+            <br>
+            <% })%>
+
+               <button class="btn-add"><a href="/new">Add message</a></button>
+    </div>
+</body>
+
 </html>
