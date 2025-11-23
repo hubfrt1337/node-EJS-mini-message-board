@@ -12,7 +12,7 @@ body{
     background-color: rgb(243, 243, 243);
     padding: 2rem;
     border-radius: 1rem;
-    min-width: 500px;
+    width: 500px;
 }
 h1{
     padding: 0;
@@ -42,7 +42,11 @@ h1{
     border-radius: 1rem;
 }
 .text{
+    width: 90%;
     font-size: 1.2rem;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 .author{
     font-weight: bold;
