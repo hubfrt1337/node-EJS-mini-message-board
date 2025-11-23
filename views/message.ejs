@@ -1,15 +1,29 @@
 <html>
-    <head>
-        <title><%= title %></title>
-    </head>
-    <body>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div class="container">
         <h1>Message Details</h1>
         <% if(message) { %>
-        <div><strong>User:</strong> <%= message.user %></div>
-        <div><strong>Text:</strong> <%= message.text %></div>
-        <div><strong>Added:</strong> <%= message.added %></div>
-        <br>
-        <% } %>
-        <a href="/">Back to messages</a>
-    </body>
+            <p><strong>User:</strong>
+                <%= message.user %>
+            </p>
+            <p><strong>Text:</strong>
+                <%= message.text %>
+            </p>
+            <p><strong>Added:</strong>
+                <%= message.added.toLocaleString() %>
+            </p>
+            <br>
+            <% } %>
+                <button class="submit"><a href="/">Back to messages</a></button>
+    </div>
+</body>
+
 </html>
