@@ -1,20 +1,21 @@
 const express = require('express');
 const newMessageRoute = express.Router();
-const {messages} = require('./indexRoute')
+const db = require('../db/queries')
 newMessageRoute.get("/", (req, res) => {
     res.render("form")
 })
 
-newMessageRoute.post("/", (req, res) => {
+newMessageRoute.post("/", async (req, res) => {
     reqText = req.body.text;
     reqAuthor = req.body.author;
-    messages.push({id: crypto.randomUUID(),text: reqText, user: reqAuthor, added: new Date()})
+    await db.insertIntoMessages(reqAuthor, reqText)
     res.redirect('/')
 });
 
-newMessageRoute.get("/message/:id", (req, res) => {
+newMessageRoute.get("/message/:id", async (req, res) => {
     const id = req.params.id;
-    const message = messages.find(msg => msg.id === id)
+    const messages = await db.getAllUsernames()
+    const message = messages.find(msg => msg.id === Number(id))
     res.render("message", {title: "Message Details", message: message})
 })
 module.exports = newMessageRoute;

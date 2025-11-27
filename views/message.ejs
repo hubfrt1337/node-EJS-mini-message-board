@@ -12,10 +12,10 @@
         <h1>Message Details</h1>
         <% if(message) { %>
             <p><strong>User:</strong>
-                <%= message.user %>
+                <%= message.username %>
             </p>
             <p><strong>Text:</strong>
-                <%= message.text %>
+                <%= message.textstring %>
             </p>
             <p><strong>Added:</strong>
                 <%= message.added.toLocaleString() %>
