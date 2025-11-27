@@ -1,5 +1,6 @@
 const express = require("express")
 const indexRoute = express.Router();
+const db = require("../db/queries")
 
 const messages = [
   {
@@ -18,8 +19,10 @@ const messages = [
 
 
 
-indexRoute.get("/", (req, res) => {
-    res.render("index", {title: "Mini Message Board", messages: messages})
+indexRoute.get("/", async (req, res) => {
+  const usernames = await db.getAllUsernames();
+  console.log(usernames)
+    res.render("index", {title: "Mini Message Board", messages: usernames})
 })
 
 module.exports = {indexRoute, messages};

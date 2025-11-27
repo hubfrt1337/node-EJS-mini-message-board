@@ -1,8 +1,9 @@
 const express = require('express');
+require('dotenv').config({ path: './.env.local'});
 const app = express();
 const {indexRoute, } = require('./routes/indexRoute')
 const newMessageRoute = require('./routes/messageRoute')
-const pool = require("./db")
+
 
 const PORT = process.env.PORT || 3000;
 
