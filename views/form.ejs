@@ -1,13 +1,16 @@
-<head>
-   <html>
+<html>
+   <head>
    <link rel="stylesheet" href="/styles.css">
    <title>Add message</title>
 
-   </html>
+   </head>
 
 <body>
    <div class="container">
       <h1>Add message </h1>
+      <% if(msg) { %>
+         <div><strong style="color: red;"><%= msg %></strong></div>
+      <% } %>
       <form method="POST" action="/new">
          <p>
          <input type="text" name="author" placeholder="Author" required />
@@ -21,4 +24,4 @@
 
 
 </body>
-</head>
+</html>
