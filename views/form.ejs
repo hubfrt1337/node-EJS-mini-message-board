@@ -1,27 +1,43 @@
 <html>
-   <head>
+
+<head>
    <link rel="stylesheet" href="/styles.css">
    <title>Add message</title>
 
-   </head>
+</head>
 
 <body>
    <div class="container">
       <h1>Add message </h1>
       <% if(msg) { %>
-         <div><strong style="color: red;"><%= msg %></strong></div>
-      <% } %>
-      <form method="POST" action="/new">
-         <p>
-         <input type="text" name="author" placeholder="Author" required />
-         </p>
-         <div class="flex-form">
-         <input id="msg" type="text" name="text" placeholder="Message" required />
-         <button class="submit" type="submit">Submit</button>
-         </div>
-      </form>
+         <div><strong style="color: red;">
+               <%= msg %>
+            </strong></div>
+         <% } %>
+            <form method="POST" action="/new">
+               <p>
+                  <input type="text" name="author" placeholder="Author" required />
+               </p>
+               <div class="flex-form">
+                  <input id="msg" type="text" name="text" placeholder="Message" required />
+                  <button class="submit" type="submit">Submit</button>
+               </div>
+            </form>
    </div>
-
+   <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (e) => {
+         if(form.classList.contains('was-validated')) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+         }
+         else {
+            form.classList.add('was-validated');
+         }
+      });
+   </script>
 
 </body>
+
 </html>
