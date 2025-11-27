@@ -97,3 +97,9 @@ input{
 #msg{
     flex: 1;
 }
+
+@media screen and (max-width: 800px){
+    .container{
+        width: 90%;
+    }
+}
